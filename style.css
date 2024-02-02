@@ -1,0 +1,45 @@
+header{height: 30px;position: absolute;top:0;left:0;right:0;background-color: #323233}
+nav{position:absolute;top:30px;left:0;bottom: 15px;background-color: #252526;min-width:200px;color:#a2a2a8;cursor: pointer;font-family: sans-serif;font-size: smaller;}  
+main{position: absolute;right: 0;bottom: 15px;top: 30px;left:200px;background-color: #1e1e1e;color:#a2a2a8;}
+section{position: absolute;left:0;right:0;}
+section:first-child{background-color: #252526;height: 30px;top:0;}
+section:nth-child(2){height: 10px;position: relative;}
+footer{position:absolute;height: 20px;background-color:#cc6633;bottom: 0;left:0;right:0;}
+h5{margin-top: 10px;margin-left: 10px;opacity: 0.7;}
+button{padding:50%;border:0;background-color: transparent;}
+textarea{position: absolute;left:60px;top:30px;bottom :0;background-color: #1e1e1e;border-color:#1e1e1e;color:#a2a2a8;font-size: smaller;
+    border: none;
+    overflow: auto;
+    outline: none;
+    
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    overflow-y: scroll;
+    resize: none; /*remove the resize handle on the bottom right*/
+}
+
+iframe{position: absolute;top:30px;bottom:0%;background-color: white;
+    right: 0%;
+ 
+    width:619px;
+   height: 620px;}
+#n{position: absolute;top:30px;bottom:0;border:0;left: 0;text-align: center;}
+#n::-webkit-scrollbar {
+    display: none;/*First text box should not show a scroll bar*/
+}
+svg {margin:0;padding: 0;}
+polyline{margin-bottom:5px ;}
+svg:hover,li:hover{background-color:#37373d ;}
+/*svg:active{border: 1px solid blue;background-color: lightblue;}*/
+polyline{fill:none;stroke:white;stroke-width:1;margin-bottom: 25px;}
+ul{list-style-type: none;
+    margin: 0;
+    padding-left:0 ;
+
+}
+li{padding-left: 20px;margin-bottom:5px ;padding-top: 3px;padding-bottom: 3px;}
+font{margin-right: 4px;}
+h6{text-align: left;margin-top: 5px;margin-left: 10px;}
+i,font{padding-right: 4px;}
+
