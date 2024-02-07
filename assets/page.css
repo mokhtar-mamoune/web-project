@@ -1,0 +1,78 @@
+body{
+    background-image: url("image.jpg");
+    position: fixed;
+}
+#dv{
+    position: relative;
+    top: -110px;
+    left: 450px;
+}
+#dv{
+    position: relative;
+    top: -190px;
+    left: 450px;
+}
+img{
+    position: relative;
+    top: 100px;
+    left: 30px;
+    width: 250px;
+    height: 250px;
+}
+.usr,.ps {
+    border-radius: 5px;
+    vertical-align: middle;
+    height: 35px;
+    width: 220px;
+}
+#bt,#bt1{
+    border-radius: 11px;
+    vertical-align: middle;
+    width: 120px;
+    height: 45px;
+    background-color:rgb(140, 166, 157)
+}
+.reg{
+    position: relative;
+    left: 650px;
+    top: -50px;
+}
+
+#prt{
+    width: 700px;
+    height: 500px;
+    background-color: white;
+    position: relative;
+    top: 35px;
+    left: 250px;
+}
+.thumbnail {
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out; 
+  }
+
+  .thumbnail:hover {
+    transform: scale(0.5) rotate(18deg);
+  }
+.regist {
+    position: relative;
+    top: 90px;
+}
+.error {
+
+    background: #F2DEDE;
+ 
+    color: #0c0101;
+ 
+    padding:1px;
+ 
+    width: 45%;
+ 
+    border-radius: 5px;
+ 
+    margin: 10px auto;
+    position: relative;
+    top: 80px;
+    left: -80px;
+ 
+ }
