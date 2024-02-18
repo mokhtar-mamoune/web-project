@@ -1,15 +1,17 @@
 #sb{
     position: relative;
     left:100px;
-    top:0px;
+    top: 0px;
     width:60px;
 }
-#sb1{
+#sb1,#ssb1{
     position: relative;
     left:0px;
     top:5px;
     width:90px;
 }
+
+
 
 header{height: 30px;position: absolute;top:0;left:0;right:0;background-color: #323233 ;}
 nav{position:absolute;top:30px;left:0;bottom: 15px;background-color: #252526;min-width:200px;color:#a2a2a8;cursor: pointer;font-family: sans-serif;font-size: smaller;}  

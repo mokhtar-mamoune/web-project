@@ -10,12 +10,16 @@ function upload() {
             a.href = URL.createObjectURL(file);
             a.textContent = file.name;
             a.setAttribute('target', 'iframe');
-            a.setAttribute('onclick', 'loadFile("' +"/web-project/assets/"+ file.name + '"); return false;');
+            a.addEventListener('click', function() {
+                loadFile("/web-project/files/" + file.name);
+                return false;
+            });
             li.appendChild(a);
             ul.appendChild(li);
         }
     });
 }
+
 function loadFile(filePath) {
     fetch(filePath)
         .then(response => response.text())
@@ -33,8 +37,8 @@ function loadFile(filePath) {
         });
 }
 function updateIframeContent() {
-const a = document.querySelector("#src");
-const iframe = document.querySelector("iframe");
-const content = a.value;
-iframe.setAttribute("srcdoc", content);
+            const a = document.querySelector("#src");
+            const iframe = document.querySelector("iframe");
+            const content = a.value; 
+            iframe.setAttribute("srcdoc", content);
 }
