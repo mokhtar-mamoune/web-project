@@ -4,9 +4,6 @@ $username=$_SESSION['username'];
 if (isset($_GET['username'])) {
     $username = $_GET['username'];    
 }
-else {
-   // header('Location: /OnlineEditer/login.php');
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,11 +19,10 @@ else {
 
     <header>
     <!-- h5 style="color:white;">Bienvenue  */</h5 -->
-<button><i class="fa-solid fa-floppy-disk"></i></button>
-<button> <i class="fa-solid fa-folder-plus" title="Nouvelle repertoire"></i></button>
- <button><i class="fa-solid fa-file-circle-plus" title="Nouveau fichier"></i></button>
- <button ><i class="fa-solid fa-file-arrow-up" title="Charger un fichier"></i></button>
- <a href="/web-project/logout.php" style="color:white;text-decoration: none;"><b>Logout</b></a>
+<button onclick="updateIframeContent()" ><i class="fa-solid fa-floppy-disk"></i></button>
+ <button onclick="NewDraft('<?php echo $_SESSION['username']; ?>')"><i class="fa-solid fa-file-circle-plus" title="Nouveau fichier"></i></button>
+ <button  onclick="upload('<?php echo $_SESSION['username']; ?>')"><i class="fa-solid fa-file-arrow-up" title="Charger un fichier"></i></button>
+ <a href="/OnlineEditer/logout.php" style="position: relative;left: 1300px;color:red;text-decoration: none;"><b>Logout</b></a>
     </header>
     
     <nav>
@@ -34,7 +30,9 @@ else {
         
         <!-- <input type="submit" id="sb" onclick="updateIframeContent()" value="save"> -->
         
+        <h5>Bienvenue <?= $username ?></h5>
         <h6>EXPLORER</h6>
+
         
         <!-- <input type="file" id="sb1" onclick="upload()" multiple><br><br>
         <form action="file.php" method="post">

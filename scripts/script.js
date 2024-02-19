@@ -1,23 +1,39 @@
 const file_uplaoder=document.createElement("input")
 file_uplaoder.setAttribute("type", "file")
-function upload() {
+file_uplaoder.style.display="None"
+document.body.appendChild(file_uplaoder)
+function upload(username) {
+    file_uplaoder.click()
     file_uplaoder.addEventListener('change', function(event) {
         var fileList = event.target.files;
         var ul = document.getElementById('fileList');
-        
+
         for (var i = 0; i < fileList.length; i++) {
             var file = fileList[i];
             var li = document.createElement('li');
             var a = document.createElement('a');
             a.href = URL.createObjectURL(file);
             a.textContent = file.name;
+            const formData = new FormData();
+            formData.append("file", file);
+            fetch("/OnlineEditer/upload.php", {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
             a.setAttribute('target', 'iframe');
             a.addEventListener('click', function() {
-                loadFile("/OnlineEditer/files/" + file.name);
+                loadFile("/OnlineEditer/files/" +username+"/"+ file.name);
                 return false;
             });
             li.appendChild(a);
-            ul.appendChild(li);
+            ul.appendChild(li);  // Response from the server
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+            //
+            
         }
     });
 }
@@ -50,28 +66,32 @@ form.setAttribute("method","post")
 form.style.display="None"
 document.body.appendChild(form)
 //Draft oppner
-const NewDraft=()=>{
+function NewDraft(username){
     const filename=prompt('',_default="untitled")
     if(filename !== null && filename!=''){
     const newli=document.createElement('li')
-    newli.appendChild(document.createTextNode(filename))
-    const newfile=document.createElement('input')
-    newfile.setAttribute("type","text")
-    newfile.setAttribute("name", "filename")
-    newfile.setAttribute("value",filename)
-    form.appendChild(newfile)
-    form.submit()
-    form.removeChild(newfile)
-    document.querySelector("ul:last-child").appendChild(newli)}
+    var a = document.createElement('a');
+    a.href = "/OnlineEditer/files/"+username+"/"+filename;
+    a.textContent = filename;
+    const formData = new FormData();
+    formData.append("filename", filename);
+    fetch("/OnlineEditer/file.php", {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => {
+    a.setAttribute('target', 'iframe');
+    a.addEventListener('click', function() {
+        loadFile("/OnlineEditer/files/"+username+"/"+filename);
+        return false;
+    });
+    newli.appendChild(a);
+     document.querySelector("ul:last-child").appendChild(newli)
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+   } 
   }
   //add directory 
-  document.getElementsByClassName("fa-solid fa-file-circle-plus")[0].parentElement.onclick=NewDraft
-  document.getElementsByClassName("fa-solid fa-file-arrow-up")[0].parentElement.onclick=upload()
-  document.getElementsByClassName("fa-solid fa-file-floppy-disk")[0].parentElement.onclick=updateIframeContent()
-
-
-  //what happens on loading page 
-
-  document.onload=(()=>{
-         
-  })()
+ 
