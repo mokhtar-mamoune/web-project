@@ -1,8 +1,10 @@
+const file_uplaoder=document.createElement("input")
+file_uplaoder.setAttribute("type", "file")
 function upload() {
-    document.getElementById('sb1').addEventListener('change', function(event) {
+    file_uplaoder.addEventListener('change', function(event) {
         var fileList = event.target.files;
         var ul = document.getElementById('fileList');
-
+        
         for (var i = 0; i < fileList.length; i++) {
             var file = fileList[i];
             var li = document.createElement('li');
@@ -11,7 +13,7 @@ function upload() {
             a.textContent = file.name;
             a.setAttribute('target', 'iframe');
             a.addEventListener('click', function() {
-                loadFile("/web-project/files/" + file.name);
+                loadFile("/OnlineEditer/files/" + file.name);
                 return false;
             });
             li.appendChild(a);
@@ -42,3 +44,34 @@ function updateIframeContent() {
             const content = a.value; 
             iframe.setAttribute("srcdoc", content);
 }
+const form = document.createElement("form")
+form.setAttribute("action","file.php")
+form.setAttribute("method","post")
+form.style.display="None"
+document.body.appendChild(form)
+//Draft oppner
+const NewDraft=()=>{
+    const filename=prompt('',_default="untitled")
+    if(filename !== null && filename!=''){
+    const newli=document.createElement('li')
+    newli.appendChild(document.createTextNode(filename))
+    const newfile=document.createElement('input')
+    newfile.setAttribute("type","text")
+    newfile.setAttribute("name", "filename")
+    newfile.setAttribute("value",filename)
+    form.appendChild(newfile)
+    form.submit()
+    form.removeChild(newfile)
+    document.querySelector("ul:last-child").appendChild(newli)}
+  }
+  //add directory 
+  document.getElementsByClassName("fa-solid fa-file-circle-plus")[0].parentElement.onclick=NewDraft
+  document.getElementsByClassName("fa-solid fa-file-arrow-up")[0].parentElement.onclick=upload()
+  document.getElementsByClassName("fa-solid fa-file-floppy-disk")[0].parentElement.onclick=updateIframeContent()
+
+
+  //what happens on loading page 
+
+  document.onload=(()=>{
+         
+  })()

@@ -4,7 +4,9 @@ $username=$_SESSION['username'];
 if (isset($_GET['username'])) {
     $username = $_GET['username'];    
 }
-
+else {
+   // header('Location: /OnlineEditer/login.php');
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,27 +15,32 @@ if (isset($_GET['username'])) {
         
     </style>
     <title>Home</title>
-    <link rel="stylesheet" href="assets/style.css">
-    
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/646ee5ea7f.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
     <header>
-    <h5 style="color:white;">Bienvenue <?= $username; ?></h5>
+    <!-- h5 style="color:white;">Bienvenue  */</h5 -->
+<button><i class="fa-solid fa-floppy-disk"></i></button>
+<button> <i class="fa-solid fa-folder-plus" title="Nouvelle repertoire"></i></button>
+ <button><i class="fa-solid fa-file-circle-plus" title="Nouveau fichier"></i></button>
+ <button ><i class="fa-solid fa-file-arrow-up" title="Charger un fichier"></i></button>
+ <a href="/web-project/logout.php" style="color:white;text-decoration: none;"><b>Logout</b></a>
     </header>
     
     <nav>
-        <a href="/web-project/logout.php" style="color:white;text-decoration: none;"><b>Logout</b></a>
         
-        <input type="submit" id="sb" onclick="updateIframeContent()" value="save">
+        
+        <!-- <input type="submit" id="sb" onclick="updateIframeContent()" value="save"> -->
         
         <h6>EXPLORER</h6>
         
-        <input type="file" id="sb1" onclick="upload()" multiple><br><br>
+        <!-- <input type="file" id="sb1" onclick="upload()" multiple><br><br>
         <form action="file.php" method="post">
             <input type="text" id="filename" name="filename"><br>
-            <input type="submit" id="ssb1" value="creerfile">
-        </form>        
+            <input type="submit" id="ssb1" value="Nouveau Fichier">
+        </form> -->        
         <br><br>
         <ul id="fileList"></ul>
         

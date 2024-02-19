@@ -18,9 +18,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     try {
         $stmt = $link->prepare("INSERT INTO users (username, email, mot_passe) VALUES (?, ?, ?)");
-        $stmt->execute([$username, $email, password_hash($upassword, PASSWORD_DEFAULT)]);
+        $stmt->bind_param("sss",$username, $email, password_hash($upassword, PASSWORD_DEFAULT));
+        $stmt->execute();
         $_SESSION['username'] = $username;
-        header("Location: /web-project/home.php");
+        header("Location: /OnlineEditer/home.php");
         exit();
     } catch (PDOException $e) {
         die("Erreur lors de l'exécution de la requête : " . $e->getMessage());
@@ -51,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <br><br>
         <input id="bt" type="submit" name="submit" value="register">
         <br><br>
-       <b>vous avez deja un compte?</b><a href="/web-project/login.php" style="color:  rgb(2, 33, 75);text-decoration: none;"><b>login</b></a>
+       <b>vous avez deja un compte?</b><a href="/OnlineEditer/login.php" style="color:  rgb(2, 33, 75);text-decoration: none;"><b>login</b></a>
 
     </div>
     </div>

@@ -31,7 +31,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
         $row = $result->fetch_assoc();
         if (($username_form == $row['username'] ) && (password_verify($password_form, $row['mot_passe']))) {
             $_SESSION['username'] = $row['username'];
-            header("Location: /web-project/home.php");
+            header("Location: /OnlineEditer/home.php");
             exit();
         }else{
             header("Location: login.php?error=username or password incorrect");
@@ -39,7 +39,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
         }
     }
 
-    header("Location: /web-project/login.php");
+    header("Location: /OnlineEditer/login.php");
     exit();
 }
 ?>
@@ -67,7 +67,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
     </div>
 </form>
 <div class="reg">
-    <b>vous n'avez pas un compte?</b> <a href="/web-project/register.php" style="color: rgb(2, 33, 75);text-decoration: none;">S'inscrivez</a>
+    <b>vous n'avez pas un compte?</b> <a href="/OnlineEditer/register.php" style="color: rgb(2, 33, 75);text-decoration: none;">S'inscrivez</a>
 </div>
         
 </body>

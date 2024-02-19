@@ -1,6 +1,6 @@
 <?php
     session_start();
     session_destroy();
-    header("Location: /web-project/login.php");
+    header("Location: /OnlineEditer/login.php");
     exit();
 ?>
